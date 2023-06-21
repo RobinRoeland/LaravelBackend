@@ -3,7 +3,7 @@
 @section('content')
 
     <h2>Edit product</h2>
-
+    <br>
     <form method="post" action="/update-product/{{ $product->id }}" enctype="multipart/form-data">
         {{ csrf_field() }}
         @method('PUT')
@@ -12,20 +12,20 @@
             <label for="naamid" class="col-sm-3 col-form-label">Product Naam</label>
             <div class="col-sm-9">
                 <input name="naam" type="text" class="form-control" id="naamid" 
-                       value={{ $product->naam }} required value="{{ old('naam') }}">
+                       value="{{ $product->naam }}" required value="{{ old('naam') }}">
             </div>
         </div>
         <div class="form-group row">
             <label for="categorieid" class="col-sm-3 col-form-label">Categorie</label>
             <div class="col-sm-9">
-                <input name="categorie" type="text" class="form-control" id="categorieid" value={{ $product->categorie }}
+                <input name="categorie" type="text" class="form-control" id="categorieid" value="{{ $product->categorie }}"
                        required value="{{ old('categorie') }}">
             </div>
         </div>
         <div class="form-group row">
             <label for="omschrijvingid" class="col-sm-3 col-form-label">Omschrijving</label>
             <div class="col-sm-9">
-                <input name="omschrijving" type="text" class="form-control" id="omschrijvingid" value={{ $product->omschrijving }}
+                <input name="omschrijving" type="text" class="form-control" id="omschrijvingid" value="{{ $product->omschrijving }}"
                        required value="{{ old('omschrijving') }}">
             </div>
         </div>

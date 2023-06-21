@@ -18,11 +18,11 @@ class AdminUserSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@ehb.be',
             'email_verified_at' => now(),
-            'password' => bcrypt('Password!321'),
+            'password' => 'Password!321',
         ]);
 
         Admin::create([
-            'user' => User::where('email', '=', 'admin@ehb.be')->first()->id,
+            'user_id' => User::where('email', '=', 'admin@ehb.be')->first()->id,
         ]);
     }
 }

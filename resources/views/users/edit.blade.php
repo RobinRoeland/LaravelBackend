@@ -12,14 +12,21 @@
             <label for="nameid" class="col-sm-3 col-form-label">Naam</label>
             <div class="col-sm-9">
                 <input name="name" type="text" class="form-control" id="nameid" 
-                       value={{ $user->name }} required value="{{ old('name') }}">
+                       value="{{ $user->name }}" required value="{{ old('name') }}">
             </div>
         </div>
         <div class="form-group row">
             <label for="emailid" class="col-sm-3 col-form-label">Email</label>
             <div class="col-sm-9">
-                <input name="email" type="text" class="form-control" id="emailid" value={{ $user->email }}
+                <input name="email" type="text" class="form-control" id="emailid" value="{{ $user->email }}"
                        required value="{{ old('email') }}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="biographyid" class="col-sm-3 col-form-label">Biography</label>
+            <div class="col-sm-9">
+                <input name="biography" type="text" class="form-control" id="biographyid" value="{{ $user->biography }}"
+                       required value="{{ old('biography') }}">
             </div>
         </div>
         <div class="form-group row">

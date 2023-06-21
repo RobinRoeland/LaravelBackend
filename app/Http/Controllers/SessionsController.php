@@ -15,21 +15,19 @@ class SessionsController extends Controller
     public function store(Request $request)
     {
         $login = $request->only('email','password');
-        if (Auth::attempt($login, $request->has('remember')) == false) {
-//        if (auth()->attempt(request(['email', 'password'])) == false) {
+        if (auth::attempt($login, $request->has('remember')) == false) {
             return back()->withErrors([
                 'message' => 'The email or password is incorrect, please try again'
             ]);
         }
         
-        return redirect()->to('/about');
+        return redirect()->to('/index');
     }
     
     public function destroy()
     {
-        auth()->logout();
+        auth::logout();
         
-        return redirect()->to('/about');
+        return redirect()->to('/index');
     }
-    //
 }

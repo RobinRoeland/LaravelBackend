@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 class UsersController extends Controller
-{
+{  
     public function create()
     {
         return view('users.create');
@@ -15,17 +15,20 @@ class UsersController extends Controller
 
     public function store()
     {
+        //check of de minimale invoer correct aanwezig is
         $this->validate(request(), [
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required'
         ]);
         
+        //user creeren in tabel
         $user = User::create(request(['name', 'email', 'password']));
         
+        //meteen ook inloggen
         auth::login($user);
         
-        return redirect()->to('/about');
+        return redirect()->to('/index');
     }
 
     public function profile()
@@ -44,12 +47,14 @@ class UsersController extends Controller
     {
         $user = auth::user();
 
+        //check of de minimale invoer correct aanwezig is
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required'
         ]);
 
+        //user updaten in tabel
         $user->name = $request->name;
         $user->email = $request->email;
         $user->biography = $request->biography;
@@ -60,11 +65,7 @@ class UsersController extends Controller
         }
         $user->save();
         
-        return redirect()->to('/about');
+        return redirect()->route('profile', [$user]);
+        //return redirect()->to('/about');
     }
- 
-    public function admin()
-    {
-        return view('admin');
-    }
-}
+ }

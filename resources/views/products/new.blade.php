@@ -3,7 +3,7 @@
 @section('content')
 
     <h2>Add a product</h2>
-
+    <br>
     <form method="post" action="/products" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group row">

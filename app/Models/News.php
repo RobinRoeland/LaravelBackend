@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Admin extends Model
+class News extends Model
 {
     use HasFactory;
 
@@ -16,20 +16,9 @@ class Admin extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'user_id',
+        'title',
+        'content',
+        'publishing_date',
+        'image',
     ];
-
-    public static function addUser($id)
-    {
-        if (Admin::where('user_id', '=', $id)->exists() == false) {
-            Admin::create([
-                'user_id' => $id,
-            ]);
-        }
-    }
-
-    public static function removeUser($id)
-    {
-        Admin::where('user_id', $id)->delete();
-    }
 }

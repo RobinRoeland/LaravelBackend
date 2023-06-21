@@ -44,6 +44,14 @@ class ProductsController extends Controller
     }
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'naam' => 'required:products',
+            'categorie' => 'required',
+            'omschrijving' => 'required',
+            'prijs' => 'required',
+            'user' => 'required',
+        ]);
+    
         $product = Product::find($id);
         $product->naam = $request->input('naam');
         $product->categorie = $request->input('categorie');
@@ -53,16 +61,11 @@ class ProductsController extends Controller
         $product->prijs = $request->input('prijs');
         $product->user = $request->input('user');
         $product->save();
-        //return redirect()->back()->with('status','Product Updated Successfully');
+
         return redirect('/products');
     } 
     public function store()
     {
-        var_dump(request('naam'));
-        var_dump(request('categorie'));
-        var_dump(request('omschrijving'));
-        var_dump(request('image'));
-
         $this->validate(request(), [
             'naam' => 'required:products',
             'categorie' => 'required',
@@ -72,14 +75,13 @@ class ProductsController extends Controller
         ]);
     
         $product = new Product;
-        
         $product->naam = request('naam');
         $product->categorie = request('categorie');
         $product->omschrijving = request('omschrijving');
         $temp = request()->file('image')->store('public/images');
         $product->image = substr($temp, 7);
         $product->prijs = request('prijs');
-        $product->user = request('user');
+        $product->user_id = request('user');
         $product->save();
 
         return redirect('/products');

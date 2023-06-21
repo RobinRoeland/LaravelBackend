@@ -22,14 +22,16 @@
             </li>
             @if( auth()->check() )
                 <li class="nav-item">
-                    <a class="nav-link" href="/products/new">add product</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link font-weight-bold" href="/profile">Hi {{ auth()->user()->name }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Log Out</a>
                 </li>
+                @if( auth()->user()->isAdmin() )
+                    <li class="nav-item">
+                        <a class="nav-link font-weight-bold" href="/users">AdminTools</a>
+                    </li>
+                @endif
             @else
                 <li class="nav-item">
                     <a class="nav-link" href="/logon">Log In</a>

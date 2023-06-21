@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\News;
 use App\Models\Faq;
 
 use Illuminate\Http\Request;
@@ -17,7 +18,8 @@ class MainController extends Controller
     }
     public function news()
     {
-        return view('main.news');
+        $news = News::all();//->sortBy('publishing_date', SORT_DESC);
+        return view('main.news', ['news' => $news]);
     }
     public function faq()
     {
@@ -28,5 +30,4 @@ class MainController extends Controller
     {
         return view('main.index');
     }
-   //
 }

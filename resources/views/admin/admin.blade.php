@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <h1>Welkom bij 3deHands.be!</h1>
+
+    <h2>Administrative tools</h2>
+        
 @endsection

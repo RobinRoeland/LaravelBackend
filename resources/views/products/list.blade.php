@@ -1,6 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
+
+    <h2>Products</h2>
+    <br>
     <table id="list" style="background:rgb(240,240,240); border-radius:10px; width:95%;">
         <tr style="background:lightgray;">
             <th style="padding: 2%; border-radius: 10px 0 0 0;">Naam</th>
@@ -21,5 +24,9 @@
             </tr>
         @endforeach
     </table>
+    <br>
+    @if( auth()->check() )
+        <button class="btn btn-primary" onclick='location.href="/products/new/"' >Add product</button>
+    @endif  
 
 @endsection

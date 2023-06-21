@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('omschrijving');
             $table->string('image')->nullable();
             $table->decimal('prijs', 9, 2);
-            $table->integer('user');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

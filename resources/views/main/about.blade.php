@@ -3,13 +3,14 @@
 @section('content')
 
     <h2>About</h2>
+    <br>
     <p>
     Voor de configuratie van Laravel binnen mijn project heb ik de meeste informatie gevonden op
     <br>
     <a href="https://www.guru99.com/laravel-tutorial.html">https://www.guru99.com/laravel-tutorial.html</a>
     <br>
     <br>
-    Voor het checken van de data in mijn database maak ik gebruik van phpMyAdmin in Xampp
+    Voor het checken van de data in mijn MySQL database maak ik gebruik van phpMyAdmin in Xampp
     <br>
     <br>
     De beste informatie voor het werken met een database vond ik hier:
