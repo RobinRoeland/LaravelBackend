@@ -12,21 +12,35 @@ class MainController extends Controller
     {
         return view('main.welcome');
     }
+
+    public function index()
+    {
+        return view('main.index');
+    }
+
     public function about()
     {
         return view('main.about');
     }
+
     public function news()
     {
         $news = News::all();//->sortBy('publishing_date', SORT_DESC);
         return view('main.news', ['news' => $news]);
     }
+
     public function faq()
     {
         $faqs = Faq::all()->sortBy('categorie',);
         return view('main.faq', ['faqs' => $faqs]);
     }
-    public function index()
+
+    public function contact()
+    {
+        return view('main.contact');
+    }
+
+    public function addContact()
     {
         return view('main.index');
     }

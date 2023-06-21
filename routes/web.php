@@ -20,6 +20,10 @@ Route::get('index', 'App\Http\Controllers\MainController@index');
 Route::get('news', 'App\Http\Controllers\MainController@news');
 Route::get('faq', 'App\Http\Controllers\MainController@faq');
 
+//routes voor contact-formulier
+Route::get('/contact', 'App\Http\Controllers\ContactController@createForm');
+Route::post('/contact', 'App\Http\Controllers\ContactController@storeForm');
+
 //routes voor Products administratie
 Route::get('products', 'App\Http\Controllers\ProductsController@products');
 Route::get('products/new', 'App\Http\Controllers\ProductsController@new');
@@ -39,6 +43,10 @@ Route::post('profile', 'App\Http\Controllers\UsersController@update');
 Route::get('/logon', 'App\Http\Controllers\SessionsController@create');
 Route::post('logon', 'App\Http\Controllers\SessionsController@store');
 Route::get('/logout', 'App\Http\Controllers\SessionsController@destroy');
+Route::get('passw-req', 'App\Http\Controllers\SessionsController@forgotPassword');
+Route::post('passw-req', 'App\Http\Controllers\SessionsController@sendResetLink');
+Route::get('passw-reset', 'App\Http\Controllers\SessionsController@resetPassword');
+Route::post('passw-reset', 'App\Http\Controllers\SessionsController@storePassword');
 
 //routes voor Users administratie
 Route::get('users', 'App\Http\Controllers\AdminController@users');
@@ -58,7 +66,6 @@ Route::post('news-add/', 'App\Http\Controllers\AdminController@storeNews');
 Route::post('news-update', 'App\Http\Controllers\AdminController@updateNews');
 Route::get('news-edit/{id}', 'App\Http\Controllers\AdminController@editNews');
 Route::get('news-delete/{id}', 'App\Http\Controllers\AdminController@deleteNews');
-
 
 Auth::routes();
 

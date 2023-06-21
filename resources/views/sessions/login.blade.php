@@ -21,10 +21,10 @@
             <button style="cursor:pointer" type="submit" class="btn btn-primary">Login</button>
 
             @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+                <a class="btn btn-link" href="passw-req">
+                    {{ __('Forgot Your Password?') }}
+                </a>
+            @endif
         </div>
 
         @include('partials.formerrors')
